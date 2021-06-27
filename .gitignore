@@ -1,3 +1,6 @@
 node_modules
+dist
 
+
+# Vim cache file - need to fix this 
 *.swp
