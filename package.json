@@ -1,0 +1,48 @@
+{
+  "name": "devnology",
+  "version": "1.0.0",
+  "description": "teste estagio",
+  "main": "index.js",
+  "repository": "https://github.com/darkzera/devnology.git",
+  "author": "Lucas <lucas.zrc@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+
+  },
+
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.3",
+    "@overnightjs/core": "^1.7.5",
+    "@types/bcrypt": "^3.0.1",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "0.21.19",
+    "module-alias": "^2.2.2",
+    "mysql2": "^2.2.5",
+    "node-addon-api": "^3.1.0",
+    "objection": "^2.2.15"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/config": "^0.0.38",
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.21",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/module-alias": "^2.0.0",
+    "@types/node": "^13.13.2",
+    "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "supertest": "^6.1.3",
+    "ts-jest": "^26.5.4",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^3.8.3"
+  }
+}
