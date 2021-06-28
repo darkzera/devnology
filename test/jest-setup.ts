@@ -11,5 +11,4 @@ beforeAll(async () => {
 afterAll(async () => {
     await server.close();
     console.log('Database - closed');
-    
 });

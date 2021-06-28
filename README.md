@@ -10,7 +10,7 @@ Crie um arquivo readme falando um pouco sobre quais as decisões que você tomou
 
 Precisamos que nosso sistema seja capaz de:
 
-- Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
+- Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra. <-- ? 
 
 - Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
 

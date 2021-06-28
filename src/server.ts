@@ -4,11 +4,16 @@ import bodyParser from 'body-parser';
 import { Application } from 'express';
 // Controller
 
+// cannot import using es
+// installing @types/sinesp-api failed
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const sinespApi = require('sinesp-api');
 
-// DataBase imports 
+// DataBase imports
 import Knex from 'knex';
 import knexConfig from '../knexfile';
 import { Model } from 'objection';
+import { CarroController } from './controllers/carro';
 
 const knex = Knex(knexConfig.development);
 export class SetupServer extends Server {
@@ -25,7 +30,6 @@ export class SetupServer extends Server {
     private async databaseSetup(): Promise<void> {
         await Model.knex(knex);
         console.log('DB is setup i guess?');
-        
     }
 
     public async close(): Promise<void> {
@@ -35,18 +39,23 @@ export class SetupServer extends Server {
     private setupExpress(): void {
         this.app.use(bodyParser.json());
     }
+
+    //TODO - Lembrar dos controllers
     private setupControllers(): void {
-        //
+        const carroController: CarroController = new CarroController();
+
+        this.addControllers(
+            carroController
+        )
     }
 
     public start(): void {
         this.app.listen(this.port, () => {
-            console.log('Express in:', this.port,);
-        })
+            console.log('Express in:', this.port);
+        });
     }
 
     public getApp(): Application {
         return this.app;
     }
 }
-
