@@ -1,7 +1,7 @@
 import config, { IConfig } from "config"
 import Knex from "knex"
 
-// Not working TODO:
+// Not working TODO
 // const dbConfig: IConfig = config.get('App.database');
 
 
@@ -12,7 +12,7 @@ const knexConfig = {
             host: '127.0.0.1',
             user: 'root',
             // database: dbConfig.get('database'),
-            database: 'movieflix'
+            database: 'devnology-test'
         }
     },
     migrations: {

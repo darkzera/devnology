@@ -24,14 +24,13 @@ Qualquer dúvida entre em contato comigo pelo linkedin, estarei à disposição 
 
 Ao finalizar a prova basta enviar o link do repositório no linkedin.
 
-
-carro {
-    modelo,
-    marca, 
-    ano de fabricação,
-    placa,
-    cor,
-    chassi,
-    data da compra,
-    valor da compra.
+export interface CarroInterface { 
+	placa: string,
+	modelo: string,
+	marca: string,
+	cor: string,
+	chassi: string,
+	ano_fabric: string,
+	data_compra: string,
+	valorCompra: number 
 }

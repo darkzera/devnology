@@ -10,13 +10,21 @@
     "build": "tsc",
     "start": "yarn build && node dist/src/index.js",
     "start:dev": "ts-node-dev src/index.ts",
+
     "lint": "yarn eslint ./src ./test --ext .ts",
     "lint:fix": "yarn eslint ./src ./test --ext .ts --fix",
+
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:func": "jest --projects ./test --runInBand",
     "test:unit": "jest",
+
     "style:check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
-    "style:fix": "prettier --write 'src/**/*.ts' 'test/**/*.ts'"
+    "style:fix": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
+
+    "make:migration": "knex migrate:make migration_name",
+    "migrate": "knex migrate:latest",
+    "make:seed": "knex seed:make seed_name",
+    "seeding": "knex seed:run"
   },
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.3",
