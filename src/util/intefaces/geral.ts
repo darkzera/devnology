@@ -1,10 +1,8 @@
 export interface CarroInterface { 
 	placa: string,
-	modelo: string,
 	marca: string,
-	cor: string,
-	chassi: string,
+	modelo: string,
 	ano_fabric: string,
-	data_compra: string,
-	valorCompra: number 
+	chassi: string,
+	cor: string,
 }

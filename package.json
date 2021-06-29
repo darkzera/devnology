@@ -23,7 +23,7 @@
 
     "make:migration": "knex migrate:make migration_name",
     "migrate": "knex migrate:latest",
-    "make:seed": "knex seed:make seed_name",
+    "make:seed": "knex seed:make",
     "seeding": "knex seed:run"
   },
   "dependencies": {
