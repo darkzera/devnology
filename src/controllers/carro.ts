@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response} from "express";
 import { Controller, Post, Get } from "@overnightjs/core";
 import { CarroInterface } from "@src/util/intefaces/geral";
 import Carro from "@src/model/carro";
@@ -15,7 +15,7 @@ export class CarroController {
 		const car: CarroInterface = {
 			modelo: req.body.modelo,
 			marca: req.body.marca,
-			ano_fabric: req.body.fabricação,
+			ano_fabric: req.body.ano_fabric,
 			placa: req.body.placa,
 			cor: req.body.cor,
 			chassi: req.body.chassi,
@@ -23,16 +23,18 @@ export class CarroController {
 		// eslint-disable-next-line @typescript-eslint/no-inferrable-types
 		let canAdd: boolean = true;
 		try {
-			const carrosToCheck = 
-				await Carro.query().select("*");
-
-			carrosToCheck.forEach(carroPlc => {
-				if (carroPlc.placa == car.placa && carroPlc.ativo){
+			const actives = await Carro.query()
+				.select('*').where("ativo", "=", 1);
+				
+			await actives.forEach(possibleCar => {
+				if (possibleCar.placa === car.placa){
 					canAdd = false;
 				}
 			});
-			if (canAdd){ 
+
+			if (canAdd) {
 				await Carro.query().insert(car);
+
 				return res.status(200).json({
 					result: 'Carro adicionado'
 				});
@@ -41,10 +43,31 @@ export class CarroController {
 			}
 
 		} catch (err) {
-
 			return res.status(409).json(err.message);
-
 		}
-
 	}
+
+
+	@Get('veiculosDisponiveis')
+	public async getVeiculosDisponiveis(
+		req: Request,
+		res: Response
+	): Promise<Response> {
+		const disponiveis =
+			await Carro.query().select('*').where('ativo', '=', '1');
+		return res.status(200).json(disponiveis);
+	}
+
+	@Get('veiculosIndisponiveis')
+	public async veiculosIndisponiveis(
+		req: Request,
+		res: Response
+	): Promise<Response> {
+		const indisponiveis =
+			await Carro.query().select('*').where('ativo', '=', '0');
+		return res.status(200).json(indisponiveis);
+	}
+
+
+
 }

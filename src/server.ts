@@ -14,6 +14,8 @@ import Knex from 'knex';
 import knexConfig from '../knexfile';
 import { Model } from 'objection';
 import { CarroController } from './controllers/carro';
+import Venda from './model/venda';
+import { VendaController } from './controllers/venda';
 
 const knex = Knex(knexConfig.development);
 export class SetupServer extends Server {
@@ -29,7 +31,7 @@ export class SetupServer extends Server {
 
     private async databaseSetup(): Promise<void> {
         await Model.knex(knex);
-        console.log('DB is setup i guess?');
+        // console.log('DB is setup i guess?');
     }
 
     public async close(): Promise<void> {
@@ -43,10 +45,12 @@ export class SetupServer extends Server {
     //TODO - Lembrar dos controllers
     private setupControllers(): void {
         const carroController: CarroController = new CarroController();
+        const vendaController: VendaController = new VendaController();
 
-        this.addControllers(
-            carroController
-        )
+        this.addControllers([
+            carroController,
+            vendaController
+        ])
     }
 
     public start(): void {

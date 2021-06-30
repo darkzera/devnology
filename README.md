@@ -34,3 +34,13 @@ export interface CarroInterface {
 	data_compra: string,
 	valorCompra: number 
 }
+
+-- 
+Carro precisa ter seu valor default <- 
+--
+	Minha API vai querer isso aqui como requisicao para inserir
+	{
+		CARRO QUE VAI ADICIONAR A VENDA;
+		PREÇO;
+
+	}

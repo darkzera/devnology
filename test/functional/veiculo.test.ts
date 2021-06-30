@@ -1,6 +1,6 @@
 import { CarroInterface } from "@src/util/intefaces/geral";
 import Carro from "@src/model/carro";
-
+// TODO change all CARROS TO veiculo
 
 describe('Carro functional tests CREATE method. Perform rout: .../carro/create', () => {
 	beforeAll(async () => {
@@ -33,13 +33,27 @@ describe('Carro functional tests CREATE method. Perform rout: .../carro/create',
 			);
 	});
 
-	it.skip('Should throw an error caused by an wrong field input', async () => {
-		// 
+	it('Should throw an error caused by an wrong field input', async () => {
+		const a = 1;
 	});
 
 }); // EOM CREATE
 
 
-describe.skip('Carro functional tests DELETE method. Perform rout: .../carro/create', () => {
-	// 
-});// EOM DELETE
+describe('Vehicle functional tests (GET) method. Perform rout: /carro/...', () => {
+
+	it('should return a list AVAILABLE vehicles 	(ativo = true | 1) - #3 ', async () => {
+		const { status, body } =
+		await global.testRequest.get('/carro/veiculosDisponiveis')
+		expect(status).toBe(200);
+		
+	});
+
+	it('should return a list NOT AVAILABLE vehicles (ativo = false | 0) - #4 ', async () => {
+		const { status, body } =
+		await global.testRequest.get('/carro/veiculosIndisponiveis')
+		expect(status).toBe(200);
+		
+	});
+
+});// EOM LISTING 

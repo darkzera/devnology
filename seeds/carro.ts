@@ -2,8 +2,10 @@ import * as Knex from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
     // Deletes ALL existing entries
+    await knex("vendas_funcionario").del();
     await knex("vendas").del();
     await knex("carros").del();
+    await knex("funcionarios").del();
     // Inserts seed entries
     await knex("carros").insert([
         {
@@ -12,7 +14,8 @@ export async function seed(knex: Knex): Promise<void> {
             modelo: 'Lanos SX 1.6 16V',
             cor: 'Prata',
             ano_fabric: '1997',
-            chassi: '73113******'
+            chassi: '73113******',
+            ativo: false
         },
         {
             placa: 'LWF-2832',
@@ -47,6 +50,7 @@ export async function seed(knex: Knex): Promise<void> {
             chassi: '39103******'
         }
     ]);
+
     const first = await knex.queryBuilder()
         .select("id")
         .from("carros").where("placa", "like", "DAG-9549");
@@ -59,4 +63,28 @@ export async function seed(knex: Knex): Promise<void> {
             idCarro: first[0].id
         }
     ]);
+
+    await knex("funcionarios").insert([
+        {
+            nome: 'Carlos Alberto'
+        },
+        {
+            nome: 'Rafael Vianna'
+        }
+    ]);
+
+    const firstFuncId = await knex.queryBuilder()
+        .select('id').from("funcionarios")
+        .where('nome', 'like', 'Carlos Alberto');
+    const firstVendaId = await knex.queryBuilder()
+        .select('idVenda').from("vendas")
+
+    await knex("vendas_funcionario").insert([
+        {
+            idVenda: firstVendaId[0].idVenda,
+            idFuncionario: firstFuncId[0].id
+        }
+    ]);
+
+
 }
