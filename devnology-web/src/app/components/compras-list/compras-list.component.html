@@ -1,0 +1,38 @@
+
+<div class="col-md-4" *ngFor = "let veiculoDisponivel_compra of veiculosDisponiveis">
+  <div class="card">
+    <div class="card-header">
+      <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+    </div>
+    <div class="card-body" >
+      <span class="tag tag-teal">DISPONIVEL!!! UAU</span>
+      <h4>
+      {{veiculoDisponivel_compra.modelo}}
+      </h4>
+      <li>
+      {{veiculoDisponivel_compra.valor_compra}} 
+      </li>
+      <li>
+      {{veiculoDisponivel_compra.ano_fabric}}
+      </li>
+      <li>
+      {{veiculoDisponivel_compra.marca}}
+      </li>
+      <li>
+      {{veiculoDisponivel_compra.cor}}
+      </li>
+      <li>
+      {{veiculoDisponivel_compra.placa}}
+      </li>
+      <li>
+      {{veiculoDisponivel_compra.chassi}}
+      </li>
+      <li>
+      {{veiculoDisponivel_compra.data_compra}}
+      </li>
+      <br>
+      <a [routerLink]="['/vender/regis', veiculoDisponivel_compra.idCompra]" class="btn btn-info btn-block">
+        VENDER!!! lets get rich mf.
+      </a>
+    </div>
+  </div>

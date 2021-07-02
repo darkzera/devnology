@@ -1,0 +1,28 @@
+<div class="col-md-4" *ngFor="let compra of listAllVendas">
+  <div class="card">
+    <div class="card-header">
+      <img src="http://1.bp.blogspot.com/-6-LxO_AG0Fs/Tlfl4_nMS4I/AAAAAAAACK8/cHMgY6-e72g/s1600/vendendo-o-carro-velho.jpg" alt="rover" />
+    </div>
+    <div class="card-body" >
+      <span class="tag tag-teal">Vendido =((</span>
+      <h4>
+      {{compra.modelo}}
+      </h4>
+      <li>
+      Placa:{{ compra.placa}}
+      </li>
+      <li>
+        Data :{{ compra.data_venda| date:'dd-MM-yyyy'}}
+      </li>
+      <li>
+        ID Vendedor:{{ compra.Funcionario}}
+      </li>
+      <li>
+        Comissao:{{ compra.comissao}}
+      </li>
+      <li>
+        Preço:{{ compra.valor}}
+      </li>
+      <br>
+      </div>
+      </div>
