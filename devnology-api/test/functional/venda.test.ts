@@ -4,14 +4,9 @@ import Carro from "@src/model/carro";
 describe.skip('Sale registry [Venda] functional tests creating (CREATE) method. Perform rout: .../venda/createNota', () => {
 	afterAll(async () => {
 		// TODO implement --> on cascade migrations:?
-		// 1) delete vendas_func relation
-		// Venda_Funcionario.query().delete().where('idFuncionario', '=', '????')
 
-		// 2) delete sales [ vendas ] table 
 		await Venda.query().delete().where('valor', '=', 100000);
 
-		// 3) swap state of boolean inside CARROS (ativo) to true -> 
-		// We removed entire trail of this SALE. So we must set this car to available again
 		await Carro.query().findById(4).patch({
 			ativo: true
 		})

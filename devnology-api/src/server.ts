@@ -20,6 +20,7 @@ import { CompraController } from './controllers/compra';
 import { GestaoService } from './services/gestao';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import cors from 'cors';
+import { FuncionarioController } from './controllers/funcionario';
 
 
 
@@ -57,11 +58,13 @@ export class SetupServer extends Server {
         const carroController: CarroController = new CarroController();
         const vendaController: VendaController = new VendaController();
         const compraController: CompraController = new CompraController();
+        const funcionarioController: FuncionarioController = new FuncionarioController();
 
         this.addControllers([
             carroController,
             vendaController,
-            compraController 
+            compraController,
+            funcionarioController 
         ])
     }
 

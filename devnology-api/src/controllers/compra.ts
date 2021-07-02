@@ -73,7 +73,6 @@ export class CompraController {
 	): Promise<Response> {
 		const id= req.params.id;
 		
-		console.log('eu');
 		try {
 			const compraFound = await
 				Compra.query().select('*').where('idCompra', '=', id)
