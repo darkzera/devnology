@@ -1,6 +1,5 @@
-import { GestaoService
- } from '../../services/gestao.service';
-import { Compra } from '../../models/interf';
+import { GestaoService } from '../../services/gestao.service';
+import { Compra, Funcionario } from '../../models/interf';
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -20,7 +19,7 @@ export class VendaFormComponent implements OnInit {
     idCarro: -1,
     data_compra: "-"
   }
-
+  t: any = [];
 
   edit = false;
 
@@ -28,8 +27,25 @@ export class VendaFormComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
+
+
+
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params;
+
+    this.gestao.getFuncionarios()
+      .subscribe(
+        res => {
+          this.t = res;
+          console.log(res)
+          console.log("t", this.t);
+          this.edit = true;
+        },
+        err => console.error(err)
+      );
+    console.log(typeof (this.t));
+
+    // Parametro da compra -> parm.id
     if (params.id) {
       this.gestao.getCompra(params.id)
         .subscribe(
@@ -44,15 +60,21 @@ export class VendaFormComponent implements OnInit {
 
   saveNewVenda() {
     delete this.compraPraVenda.idCompra;
-    console.log(this.compraPraVenda);
+    // montar ob pra preparar a venda -> consultar na api os req.
+    // Escolher o vendendor butt
+    // Implementar desconto na API e disponibilizar o input no form
+    const venda = {
+      idCarro: this.compraPraVenda.idCarro,
+      idFuncionario: this.t[0].id,
+    }
+    this.gestao.cadastraVenda(venda)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/disponiveis']);
+        },
+        err => console.error(err)
+      );
 
-  //   this.gestao.saveMembroEsquadrao(this.)
-  //     .subscribe(
-  //       res => {
-  //         console.log(res);
-  //         this.router.navigate(['/p']);
-  //       },
-  //       err => console.error(err)
-  //     );
   }
 }

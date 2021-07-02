@@ -11,9 +11,9 @@ export class ComprasListComponent implements OnInit {
   constructor(private gestao: GestaoService) {  }
 
   ngOnInit() {
-    this.getMembroEsquadrao();
+    this.getmember();
   }
-  getMembroEsquadrao() {
+  getmember() {
     this.gestao.getVeiculosDisponiveis().subscribe(
       res => {
         this.veiculosDisponiveis= res;

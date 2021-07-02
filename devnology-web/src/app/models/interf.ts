@@ -1,4 +1,4 @@
-export interface MembroEsquadrao {
+export interface member {
     idVenda?: number 
     valor?: number,
     comissao?: number,
@@ -38,4 +38,9 @@ export interface Vehc {
     valor_compra?: number
     idCarro?: number
     data_compra?: string
+}
+
+export interface Funcionario {
+    idFuncionario?: number,
+    idNome?: string
 }

@@ -11,6 +11,12 @@
         <div class="form-group">
           <input readonly type="url" name="imagem" [(ngModel)]="compraPraVenda.valor_compra" placeholder="Imagem do venda" class="form-control">
         </div>
+
+        <div class="form-group" *ngFor = "let ts of t">
+          <!-- FIX ME PLZ -->
+          <!-- <textarea readonly name="" [(ngModel)]="ts.id" placeholder="" rows="2" class="form-control"></textarea> -->
+        </div>
+
         <button class="btn btn-success btn-block" (click)="saveNewVenda()">
            Finalizar
         </button>

@@ -10,27 +10,28 @@
       {{veiculoDisponivel_compra.modelo}}
       </h4>
       <li>
-      {{veiculoDisponivel_compra.valor_compra}} 
+      Valor da compra: {{veiculoDisponivel_compra.valor_compra}} 
       </li>
       <li>
-      {{veiculoDisponivel_compra.ano_fabric}}
+      Ano: {{veiculoDisponivel_compra.ano_fabric }} <!-- may fix this to compatible data format !! -->
       </li>
       <li>
-      {{veiculoDisponivel_compra.marca}}
+      Marca: {{veiculoDisponivel_compra.marca}}
       </li>
       <li>
-      {{veiculoDisponivel_compra.cor}}
+      Cor: {{veiculoDisponivel_compra.cor}}
       </li>
       <li>
-      {{veiculoDisponivel_compra.placa}}
+      Placa: {{veiculoDisponivel_compra.placa}}
       </li>
       <li>
-      {{veiculoDisponivel_compra.chassi}}
+      Chassi: {{veiculoDisponivel_compra.chassi}}
       </li>
       <li>
-      {{veiculoDisponivel_compra.data_compra}}
+      Data compra: {{veiculoDisponivel_compra.data_compra | date:'dd-MM-yyyy'}}
       </li>
       <br>
+
       <a [routerLink]="['/vender/regis', veiculoDisponivel_compra.idCompra]" class="btn btn-info btn-block">
         VENDER!!! lets get rich mf.
       </a>

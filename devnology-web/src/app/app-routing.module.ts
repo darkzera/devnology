@@ -11,7 +11,7 @@ import { VendaFormComponent } from './components/venda-form/venda-form.component
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: '/disponiveis',
     pathMatch: 'full'
   },
   {
