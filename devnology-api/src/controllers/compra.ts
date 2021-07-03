@@ -4,9 +4,6 @@ import { CarroInterface } from "@src/util/intefaces/geral";
 import Carro from "@src/model/carro";
 import Compra from "@src/model/compra";
 import Dinero from "dinero.js";
-import { parse } from "path";
-
-
 
 @Controller('compra')
 export class CompraController {
@@ -45,7 +42,6 @@ export class CompraController {
 			}
 			else {
 				const v = await Carro.query().insert(vehicle);
-				console.log(parseInt(req.body[0].toString()), "o preço dessa porra foi ", mone.getAmount(), " viado");
 				
 				await Compra.query().insert({
 					valor_compra: mone.getAmount(),

@@ -1,7 +1,7 @@
 import Venda from "@src/model/venda";
 import Carro from "@src/model/carro";
 
-describe.skip('Sale registry [Venda] functional tests creating (CREATE) method. Perform rout: .../venda/createNota', () => {
+describe('Sale registry [Venda] functional tests creating (CREATE) method. Perform rout: .../venda/createNota', () => {
 	afterAll(async () => {
 		// TODO implement --> on cascade migrations:?
 

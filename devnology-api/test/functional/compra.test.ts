@@ -34,7 +34,7 @@ describe('Vehicle acquisition test func. scope -- CR', () => {
 		expect(status).toBe(200);
 	});
 
-	it.skip('should fail insert cuz already exist this car -- #2', async () => {
+	it('should fail insert cuz already exist this car -- #2', async () => {
 		const compra = 120345;
 		const newCar: CarroInterface = {
 			placa: '7ES73PL4C4',
